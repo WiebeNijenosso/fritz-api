@@ -1,0 +1,47 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+<title>Center align button</title>  
+<style>  
+.container {  
+width: 300px;  
+height: 300px;  
+border: 5px solid red;  
+display: grid;  
+}  
+button {  
+background-color: lightblue;  
+color: black;  
+font-size: 25px;  
+margin: auto;  
+}  
+p{  
+font-size: 25px;  
+}  
+</style>  
+</head>  
+<body>  
+<div class="container">  
+<h1 style="text-align: center; font-style: italic;">Lights on/off switch</h1>
+<button id="btn1"> Use the overengineered lightbulp </button>
+<script type="text/javascript">
+    var button = document.getElementById("btn1");
+
+    button.onclick = function() {
+        fetch('/clicked', {method: 'POST'})
+    .then(function(response) {
+      if(response.ok) {
+        console.log('Click was recorded');
+        return;
+      }
+      throw new Error('Request failed.');
+    })
+    .catch(function(error) {
+      console.log(error);
+    
+    })
+}
+</script>
+</div>    
+</body>  
+</html>  
